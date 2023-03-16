@@ -8,6 +8,8 @@ import routes from "./routes/allRoutes.js"
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express"
 import swaggerDocumentation from "./helper/documentation.js";
+import chai from "chai";
+
 
 
 
@@ -57,3 +59,6 @@ const startServer = () => app.listen(port);
         console.log('Database Connected.....')
         console.log(`Server listening on port ${port}`)
      })
+
+
+export default app
