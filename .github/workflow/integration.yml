@@ -1,34 +1,42 @@
-name: gitActions
+name: integration
 on:
   pull_request:
   push:
     branches:
-      - main
       - ft-integration
+      - main
 jobs:
   build:
-    name: build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Dependencies
-      run: npm install
-  test:
-    name: run-unit test
+        cache: 'npm'
+    - run: npm i
+  unit-tests:
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: ${{secrets.NODE_ENV}}
+      PORT: ${{secrets.PORT}}
+      HOST: ${{secrets.HOST}}
+      MONGODB_URL: ${{secrets.MONGODN_URL}}
+      SECRET: ${{secrets.SECRET}}
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Dependencies
-      run: npm install
-    - name: test
-      run: npm run test
+        cache: 'npm'
+    - run: npm i
+    - run: npm run test
