@@ -27,7 +27,7 @@ describe("CRUD Test", () => {
             request(app)
             .post('/api/v1/blogs')
             .send({
-                title: "Arificial Intelligence ii",
+                title: "Arificial Intelligence Test",
                 body: "At its simplest form, artificial intelligence is a field, which combines computer science and robust datasets, to enable problem-solving.",
                 icon: "fa fa-robot"
             })
