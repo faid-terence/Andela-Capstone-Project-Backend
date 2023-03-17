@@ -8,7 +8,7 @@
     "test": "nyc --reporter=html --reporter=text mocha --require @babel/register src/tests/*.test.js --timeout 60000 --exit",
     "start": "node ./src/server",
     "test-with-coverage": "nyc mocha --timeout 30000",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon ./src/server.js"
   },
   "author": "Terence Faid JABO",
   "license": "ISC",
