@@ -7,7 +7,7 @@ import Blog from "../models/Blog.js";
 const should = chai.should();
 
 chai.use(chaiHttp);
-
+// Testing CRUD 
 describe("CRUD Test", () => {
     describe("METHODS ON BLOGS", ()=> {
         it("Should return all blogs on GET", (done) => {
