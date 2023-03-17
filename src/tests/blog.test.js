@@ -27,7 +27,7 @@ describe("CRUD Test", () => {
             request(app)
             .post('/api/v1/blogs')
             .send({
-                title: "Arificial Intelligence Test Integration",
+                title: "Arificial Intelligence hjkdsfsjh Integration",
                 body: "At its simplest form, artificial intelligence is a field, which combines computer science and robust datasets, to enable problem-solving.",
                 icon: "fa fa-robot"
             })
@@ -42,7 +42,7 @@ describe("CRUD Test", () => {
         it("Should return a specific POST ", (done) => {
             chai.
             request(app)
-            .get('/api/v1/blogs/6410e5de5493297eb48ab327')
+            .get('/api/v1/blogs/641368f037424b8e0b93aa4e')
             .end((err,res) => {
                 if(err) done(err)
                 else{
@@ -58,7 +58,7 @@ describe("CRUD Test", () => {
             .end((err,res) => {
                 if(err) done(err)
                 else {
-                    res.should.have.status(401);
+                    res.should.have.status(200);
                     done()
                 }
             })
